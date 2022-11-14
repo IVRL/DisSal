@@ -1,6 +1,7 @@
 # (TMLR 2022) Modeling Object Dissimilarity for Deep Saliency Prediction 
 [Transactions on Machine Learning Research]
 Bahar Aydemir*, Deblina Bhattacharjee*, Tong Zhang, Seungryong Kim, Mathieu Salzmann and Sabine Süsstrunk
+*Equal contribution
 
 Code will be published soon. Thanks for your patience!
 
