@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Modeling Object Dissimilarity for Deep Saliency Prediction">
+    <meta name="author" content="Bahar Aydemir*, Deblina Bhattacharjee*, Tong Zhang, Seungryong Kim, Mathieu Salzmann, Sabine Süsstrunk">
+    <div class="row align-items-center"></div>
+        <div class="col justify-content-center text-center">
+    <title>Modeling Object Dissimilarity for Deep Saliency Prediction</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h1>Modeling Object Dissimilarity for Deep Saliency Prediction</h1>
+    <h3> Transactions on Machine Learning Research [TMLR 2022]</h3>
+           <p class="abstract"></p>
+    <hr>
+    <div class="row align-items-center"></div>
+        <div class="col justify-content-center text-center">
+    <p class="authors">
+        <a href="https://www.linkedin.com/in/bahar-aydemir"> Bahar Aydemir</a>,
+        <a href="https://www.linkedin.com/in/deblina/"> Deblina Bhattacharjee</a>,
+        <a href="https://people.epfl.ch/tong.zhang?lang=en"> Tong Zhang</a>,
+        <a href="https://cvlab.korea.ac.kr/"> Seungryong Kim</a>,
+        <a href="https://people.epfl.ch/mathieu.salzmann"> Mathieu Salzmann</a>,
+           <a href="https://www.epfl.ch/labs/ivrl/people/susstrunk/"> Sabine Süsstrunk</a>
+    </p>
+    <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="https://openreview.net/forum?id=NmTMc3uD1G">Paper</a>
+        <a class="btn btn-primary" href="https://github.com/IVRL/DisSal">Code (coming soon)</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="vcontainer">
+            <iframe class='video' src=""  title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <div class="row align-items-center"></div>
+        <div class="col justify-content-center text-center">
+        <p>
+            Saliency prediction has made great strides over the past two decades, with current techniques modeling low-level information, such as color, intensity and size contrasts, and high-level ones, such as attention and gaze direction for entire objects. Despite this, these methods fail to account for the dissimilarity between objects, which affects human visual attention. In this paper, we introduce a detection-guided saliency prediction network that explicitly models the differences between multiple objects, such as their appearance and size dissimilarities. Our approach allows us to fuse our object dissimilarities with features extracted by any deep saliency prediction network. As evidenced by our experiments, this consistently boosts the accuracy of the baseline networks, enabling us to outperform the state-of-the-art models on three saliency benchmarks, namely SALICON, MIT300 and CAT2000.
+        </div>
+
+        <div class="section">
+            <h2>Method Overview</h2>
+            <hr>
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="method.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div> 
+            <hr>
+            <p>
+               Overview of the proposed architecture. We use an object detector to extract object instances.
+We then pass on these object features to calculate appearance dissimilarity (shown in orange), which results in a
+dissimilarity score for each object instance. The object detection network also outputs a bounding box for each
+object, which we use to calculate the normalized object size dissimilarity (shown in green) for each detection. We
+then fuse (1) the encoded global saliency features resulting from the saliency encoder, (2) the object appearance
+dissimilarity features, and (3) the normalized object size dissimilarity features. We train our saliency decoder on
+this concatenated feature set. We supervise the training with a KLD loss between the predicted
+saliency map and the ground-truth one  </p>
+            </p>
+        </div>
+        </div>
+
+        <div class="section">
+            <h2>Results</h2>
+            <hr>
+            
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="salicon.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+            <hr>
+            <p>
+             We show, from left to right,
+the input image, the corresponding ground truth, saliency maps from our model (Ours), the baseline results from
+DeepGazeII (Kümmerer et al., 2017), EML Net (Jia & Bruce, 2020), DINet (Yang et al., 2020), and SAM (Cornia
+et al., 2018), respectively. The results show how objects’ dissimilarity affects saliency. The top two rows show how
+object appearance dissimilarity affects saliency. For example, in the top row, the similarity of the objects from the
+same category (sheep) decreases their saliency, whereas the single occurrence of the person makes him more salient.
+Similarly, in the second row, the similarity of the objects from the same category (person) decreases their saliency.
+Whereas in the third row and the fourth row, the dissimilarity of the person with the surf-board and the skate-board
+makes him more salient, respectively. Note that the detection of the objects in our model facilitates this whereas the
+baseline DeepGazeII fails to do so. Similarly, in the fifth row, the similarity of the objects from the same category
+in the foreground (dogs) decreases their saliency compared to the single dog in the middle, whereas in the last row,
+the single bird is highly salient. Note that the baseline DeepGazeII model overestimates the saliency in the last row,
+whereas our model detects the bird and estimates it’s saliency close to the ground truth. (Best viewed on screen).
+24
+
+            </p>
+            </div>
+            </div>
+    <div class="section">
+            <h2>Qualitative Results on MIT1003</h2>
+            <hr>
+            
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="mit1003.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+            <hr>
+            <p>
+             Qualitative Results on MIT1003 (Judd et al., 2009). We show, from left to right, the input image, the corresponding ground truth, saliency maps from our model (Ours), the baseline results from DeepGazeII (Kümmerer et al., 2017), EML Net (Jia & Bruce, 2020), DINet (Yang et al., 2020), and SAM (Cornia et al., 2018), respectively. The first row shows how both appearance and size dissimilarity affect saliency. For example, the similarity of the objects from the same category (person) decreases their saliency in the left and centre of the image, whereas in the right of the same image the man is more salient than the woman because of his size. In the second row, the single person is highly salient compared to the rocks that are not. Similarly, the similarity of the objects from the same category (duck) in the third row decreases their saliency, whereas in the fourth row, the single duck is more salient. The last row shows a typical failure case of our model. It is due to a detection failure (in this case the rock). Note that the baselines also fail on this image. (Best viewed on screen).
+
+            </p>
+            </div>
+            </div>
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="row align-items-center"></div>
+        <div class="col justify-content-center text-center">
+        <div class="bibtexsection">
+               @article{DBLP:journals/corr/abs-2104-03864,
+                author    = {Bahar Aydemir and
+               Deblina Bhattacharjee and
+               Seungryong Kim and
+               Tong Zhang and
+               Mathieu Salzmann and
+               Sabine S{\"{u}}sstrunk},
+               title     = {Modeling Object Dissimilarity for Deep Saliency Prediction},
+               journal   = {CoRR},
+               volume    = {abs/2104.03864},
+                year      = {2021},
+                url       = {https://arxiv.org/abs/2104.03864},
+                eprinttype = {arXiv},
+                eprint    = {2104.03864},
+                timestamp = {Tue, 13 Apr 2021 16:46:17 +0200},
+                 biburl    = {https://dblp.org/rec/journals/corr/abs-2104-03864.bib},
+                     bibsource = {dblp computer science bibliography, https://dblp.org}
+                }
+
+        </div>
+    </div>
+    </div>
+
+    <hr>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
