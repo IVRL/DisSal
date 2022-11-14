@@ -10,6 +10,15 @@ TMLR 2022 Paper:https://openreview.net/forum?id=NmTMc3uD1G
 
 Project Page: https://ivrl.github.io/DisSal
 ![Figure Abstract](fig-abstract.png)
+Example of how object appearance dissimilarity between multiple objects and size dissimilarity
+affect saliency maps. We show, from left to right, a) the input image from the SALICON benchmark (Jiang et al.,
+2015), b)the ground-truth fixations, c) the saliency prediction of the baseline DeepGazeII (Kümmerer et al., 2017),
+d) the saliency prediction of Our model that uses both dissimilarity (D) and size masks (S), e) the calculated
+appearance dissimilarity mask (D) and f) the calculated size mask (S). The cats have similar saliency values in
+the ground truth whereas in the baseline DeepGazeII the right cat is more salient than the other one. Our model
+improves the prediction for the left cat with the help of the appearance dissimilarity mask, which indicates that
+the left cat with distinct fur colors is the most dissimilar object. Further, the similar sizes of the cats result in similar
+values in the size mask while the bed is larger. 
 
 ![Figure Method](fig-method.png)
 
@@ -20,7 +29,7 @@ object, which we use to calculate the normalized object size dissimilarity (show
 then fuse (1) the encoded global saliency features resulting from the saliency encoder, (2) the object appearance
 dissimilarity features, and (3) the normalized object size dissimilarity features. We train our saliency decoder on
 this concatenated feature set. We supervise the training with a KLD loss between the predicted
-saliency map and the ground-truth one
+saliency map and the ground-truth one.
 
 1. Install pytorch,torchvision
 2. Install apex
