@@ -41,22 +41,14 @@ conda install -c conda-forge nvidia-apex
 ##  Citation
 If you find the code, data, or the models useful, please cite this paper:
 ```
- @misc{https://doi.org/10.48550/arxiv.2104.03864,
-  doi = {10.48550/ARXIV.2104.03864},
-  
-  url = {https://arxiv.org/abs/2104.03864},
-  
-  author = {Aydemir, Bahar and Bhattacharjee, Deblina and Zhang, Tong and Kim, Seungryong and Salzmann, Mathieu and Süsstrunk, Sabine},
-  
-  keywords = {Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  
-  title = {Modeling Object Dissimilarity for Deep Saliency Prediction},
-  
-  publisher = {arXiv},
-  
-  year = {2022},
-  
-  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+ @article{
+aydemir2022modeling,
+title={Modeling Object Dissimilarity for Deep Saliency Prediction},
+author={Bahar Aydemir and Deblina Bhattacharjee and Tong Zhang and Seungryong Kim and Mathieu Salzmann and Sabine S{\"u}sstrunk},
+journal={Transactions on Machine Learning Research},
+year={2022},
+url={https://openreview.net/forum?id=NmTMc3uD1G},
+note={}
 }
 
 ```
