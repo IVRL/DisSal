@@ -47,8 +47,7 @@ title={Modeling Object Dissimilarity for Deep Saliency Prediction},
 author={Bahar Aydemir and Deblina Bhattacharjee and Tong Zhang and Seungryong Kim and Mathieu Salzmann and Sabine S{\"u}sstrunk},
 journal={Transactions on Machine Learning Research},
 year={2022},
-url={https://openreview.net/forum?id=NmTMc3uD1G},
-note={}
+url={https://openreview.net/forum?id=NmTMc3uD1G}
 }
 
 ```
