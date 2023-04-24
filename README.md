@@ -36,7 +36,7 @@ saliency map and the ground-truth one.
 ```
 conda install -c conda-forge nvidia-apex 
 ```
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/_WhsaujddVg/0.jpg)](https://www.youtube.com/watch?v=_WhsaujddVg)
 
 ##  Citation
 If you find the code, data, or the models useful, please cite this paper:
