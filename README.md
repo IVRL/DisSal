@@ -2,6 +2,8 @@
 [Transactions on Machine Learning Research]
 Bahar Aydemir*, Deblina Bhattacharjee*, Tong Zhang, Seungryong Kim, Mathieu Salzmann and Sabine Süsstrunk
 
+[![DOI](https://zenodo.org/badge/565864470.svg)](https://zenodo.org/doi/10.5281/zenodo.11069078)
+
 *Equal contribution
 
 Code will be published soon. Thanks for your patience!
